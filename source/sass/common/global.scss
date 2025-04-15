@@ -1,0 +1,29 @@
+:root {
+  --primary-color: #2d383f;
+  --secondary-color: #ffffff;
+  --accent-color: #0266c1;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  min-width: 320px;
+  min-height: 100vh;
+
+  font-family: $base-font;
+  cursor: default;
+
+  @media (min-width: $tablet-width) {
+    min-width: 768px;
+  }
+
+  @media (min-width: $desktop-width) {
+    min-width: 1440px;
+  }
+}
