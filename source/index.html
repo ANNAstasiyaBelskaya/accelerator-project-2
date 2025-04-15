@@ -1,21 +1,52 @@
 <!DOCTYPE html>
 <html lang="ru" data-validate="html">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lifetour</title>
-    <link rel="stylesheet" href="sass/style.scss">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lifetour</title>
+  <link rel="stylesheet" href="sass/style.scss">
+</head>
 
-  <body class="page-body">
-    <!-- пример использования спрайта -->
-    <img src="/__spritemap#sprite-logo-view" alt="Это спрайт">
-    <svg>
-      <use href="/__spritemap#sprite-user"></use>
-    </svg>
-    <!-- примеры требуемых атрибутов data-test="*" -->
-    <div data-test="header">header</div>
+<body class="page-body">
+  <header class="header" data-test="header">
+    <div class="header__container">
+      <a class="header__logo" href="/" aria-label="На главную страницу">
+        <svg width="142" height="42" focusable="false">
+          <use href="/__spritemap#sprite-logotype"></use>
+        </svg>
+      </a>
+      <button class="header__burger" type="button" aria-label="Открыть меню">
+        <svg width="26" height="19" focusable="false">
+          <use href="/__spritemap#sprite-menu"></use>
+        </svg>
+      </button>
+      <nav class="header__nav">
+        <ul class="header__menu">
+          <li class="header__menu-item">
+            <a class="header__menu-link" href="#">Туры</a>
+          </li>
+          <li class="header__menu-item">
+            <a class="header__menu-link" href="#">Обучение</a>
+          </li>
+          <li class="header__menu-item">
+            <a class="header__menu-link" href="#">О нас</a>
+          </li>
+          <li class="header__menu-item">
+            <a class="header__menu-link" href="#">Отзывы</a>
+          </li>
+          <li class="header__menu-item">
+            <a class="header__menu-link" href="#">Фотографии</a>
+          </li>
+          <li class="header__menu-item">
+            <a class="header__menu-link" href="#">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+      <a class="header__phone" href="tel:+78000000000">8 800 000-00-00</a>
+    </div>
+  </header>
+  <main>
     <div data-test="hero">hero</div>
     <div data-test="tours">tours</div>
     <div data-test="training">training</div>
@@ -24,8 +55,15 @@
     <div data-test="adv">adv</div>
     <div data-test="gallery">gallery</div>
     <div data-test="form">form</div>
-    <div data-test="footer">footer</div>
-    <script type="module" src="js/main.js"></script>
-  </body>
+  </main>
+  <footer class="footer" data-test="footer">footer</footer>
+  <script type="module" src="js/main.js"></script>
+</body>
 
 </html>
+
+<!-- пример использования спрайта -->
+<!-- <img src="/__spritemap#sprite-logo-view" alt="Это спрайт">
+ <svg>
+   <use href="/__spritemap#sprite-user"></use>
+ </svg> -->
