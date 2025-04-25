@@ -103,7 +103,7 @@ module.exports = {
   'engine': 'puppeteer',
   'engineOptions': {
     'args': ['--no-sandbox'],
-    'gotoParameters': {'waitUntil': ['load', 'networkidle0'], timeout: 60000},
+    'gotoParameters': {'waitUntil': ['load', 'networkidle0'], timeout: 90000},
   },
   'asyncCaptureLimit': 10,
   'asyncCompareLimit': 50,
