@@ -27,7 +27,7 @@
   width: 100%;
   height: 100%;
 
-  background: linear-gradient(to right, #0f1429 0%, rgba(15, 20, 41, 0.3) 0%, rgba(15, 20, 41, 0.2) 100%);
+  background: linear-gradient(to top, #0f1429 0%, rgba(15, 20, 41, 0.1) 63%, rgba(15, 20, 41, 0.01) 100%);
   mix-blend-mode: multiply;
   pointer-events: none;
   z-index: 1;
@@ -55,6 +55,7 @@
   @include font (12px, 12px, 500);
 
   position: relative;
+  display: inline-block;
   margin: 0;
 
   &::before {
@@ -82,7 +83,18 @@
   }
 }
 
+.card__duration-box {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 155px;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 28px;
+}
+
 .card__duration-text {
+  display: inline-block;
   padding: 8px 0 8px 32px;
   box-sizing: border-box;
   text-align: right;
@@ -109,7 +121,7 @@
 
   &::before {
     background-image: url("/__spritemap#sprite-moon-view");
-    background-size: 16px 16px;
+    background-size: 18px 18px;
   }
 }
 
@@ -118,7 +130,8 @@
 
   position: relative;
   margin: 0;
-  padding-right: 35px;
+  padding-right: 15px;
+  top: 1px;
   text-align: left;
 
   &::after {
@@ -130,16 +143,17 @@
     top: 125%;
     left: 0;
     background-color: var(--secondary-color, $secondary-color);
+    opacity: 0.2;
   }
 }
 
 .card__info-list {
   @include list-style;
 
-  margin-top: 15px;
+  margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
+  gap: 7px 8px;
 }
 
 .card__info-list-item {
@@ -162,14 +176,15 @@
   }
 
   span {
-    display: inline-block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 84px;
     height: 16px;
   }
 
   span > svg {
     display: inline-block;
-    margin-right: 0.7px;
     width: 16px;
     height: 16px;
   }
@@ -184,13 +199,27 @@
     width: 330px;
   }
 
+  .card__title {
+    padding-right: 25px;
+  }
+
+  .card__duration-box {
+    gap: 14px;
+  }
+
   .card__info-list {
-    gap: 28px;
+    gap: 0;
+    justify-content: space-between;
   }
 }
 
 @media (min-width: $desktop-width) {
   .card__info-list {
-    gap: 52px;
+    gap: 0;
+    justify-content: space-between;
+  }
+
+  .card__title {
+    padding-right: 70px;
   }
 }

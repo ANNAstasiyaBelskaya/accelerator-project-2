@@ -1,0 +1,240 @@
+.form {
+  width: 100%;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    image-set(
+      url("../../img/form/forest-background-mobile.webp") type("image/webp") 1x,
+      url("../../img/form/forest-background-mobile@2x.webp") type("image/webp") 2x,
+      url("../../img/form/forest-background-mobile.png") type("image/png") 1x,
+      url("../../img/form/forest-background-mobile@2x.jpg") type("image/png") 2x
+    );
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.form__container {
+  margin: 0 auto;
+  min-width: 320px;
+  max-width: 1440px;
+  padding: 175px 31px 173px;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 20px;
+}
+
+.form__content {
+  text-align: center;
+  color: var(--secondary-color, $secondary-color);
+
+  h2 {
+    @include font (22px, 22px, 800);
+
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  p {
+    @include font (12px, 18px, 400);
+
+    margin: 0;
+    padding: 0 20px;
+  }
+}
+
+.form__container form {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 8px;
+  width: 100%;
+  margin: 0;
+}
+
+.form__input-group {
+  position: relative;
+
+  input {
+    width: 100%;
+    min-height: 50px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 2px;
+
+    &:hover {
+      outline: var(--accent-color, $accent-color);
+    }
+
+    &:focus {
+      outline: var(--primary-color, $primary-color);
+    }
+
+    &:disabled {
+      outline: var(--disables-element-color, $disabled-element-color);
+    }
+  }
+
+  input .invalid {
+    outline: 1px solid #ff121f;
+    box-shadow: none;
+  }
+
+  label {
+    @include font (16px, 16px, 400);
+
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
+.form__button {
+  @include font (16px, 16px, 500);
+
+  padding: 21px 19px;
+  border: none;
+  color: var(--secondary-color, $secondary-color);
+  background-color: var(--accent-color, $accent-color);
+
+  &:hover {
+    color: var(--active-element-color, $active-element-color);
+    background-color: var(--secondary-color, $secondary-color);
+    outline: 1px solid var(--active-element-color, $active-element-color);
+    transition: 0.3s ease-in-out;
+  }
+
+  &:focus {
+    color: var(--active-element-color, $active-element-color);
+    background-color: var(--secondary-color, $secondary-color);
+    outline: none;
+  }
+
+  &:active {
+    color: var(--secondary-color, $secondary-color);
+    background-color: var(--active-element-color, $active-element-color);
+    transition: 0.3s ease-in-out;
+  }
+
+  &:disabled {
+    color: var(--secondary-color, $secondary-color);
+    background-color: var(--disabled-element-color, $disabled-element-color);
+  }
+}
+
+@media (min-width: $tablet-width) and (width <= 1439px) {
+  .form {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      image-set(
+        url("../../img/form/forest-background-tablet.webp") type("image/webp") 1x,
+        url("../../img/form/forest-background-tablet@2x.webp") type("image/webp") 2x,
+        url("../../img/form/forest-background-tablet.png") type("image/png") 1x,
+        url("../../img/form/forest-background-tablet@2x.jpg") type("image/png") 2x
+      );
+  }
+
+  .form__container {
+    padding: 183px 204px;
+    min-height: 680px;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .form__container form {
+    gap: 11px;
+  }
+
+  .form__content {
+    h2 {
+      margin-bottom: 25px;
+
+      font-size: 25px;
+      line-height: 25px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  .form__input-group {
+    input {
+      padding: 20px 30px;
+      height: 56px;
+    }
+
+    label {
+      left: 30px;
+    }
+  }
+
+  .form__button {
+    padding: 20px;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .form {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      image-set(
+        url("../../img/form/forest-background-desktop.webp") type("image/webp") 1x,
+        url("../../img/form/forest-background-desktop@2x.webp") type("image/webp") 2x,
+        url("../../img/form/forest-background-desktop.png") type("image/png") 1x,
+        url("../../img/form/forest-background-desktop@2x.jpg") type("image/png") 2x
+      );
+  }
+
+  .form__container {
+    padding: 293px 240px 292px;
+    min-height: 760px;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .form__container form {
+    flex-flow: row wrap;
+    gap: 30px;
+  }
+
+  .form__content {
+    width: 960px;
+
+    h2 {
+      font-size: 35px;
+      line-height: 35px;
+    }
+
+    p {
+      min-width: 250px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    br {
+      display: none;
+    }
+  }
+
+  .form__input-group {
+    input {
+      padding: 20px 30px;
+      width: 360px;
+      height: 56px;
+    }
+
+    label {
+      left: 30px;
+    }
+  }
+
+  .form__button {
+    padding: 20px 30px;
+    min-width: 180px;
+  }
+}

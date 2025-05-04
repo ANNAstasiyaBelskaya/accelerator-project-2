@@ -1,0 +1,249 @@
+.reviews {
+  padding: 20px 15px;
+  width: 320px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.reviews__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.reviews__title {
+  @include font (22px, 22px, 800);
+
+  position: relative;
+  margin: 0;
+  padding: 16px 0 17px;
+}
+
+.reviews__slider-controls {
+  display: none;
+}
+
+.reviews__slider-list {
+  @include list-style;
+}
+
+.reviews__slider {
+  width: 100%;
+  max-height: 484px;
+  overflow: hidden;
+  filter: drop-shadow(0 0 20px rgba(28, 51, 116, 0.1));
+}
+
+.reviews__slider-item {
+  padding: 20px;
+  width: 290px;
+  height: auto;
+  box-sizing: border-box;
+  background-color: var(--secondary-color, $secondary-color);
+
+  picture {
+    display: block;
+    margin-bottom: 19px;
+  }
+
+  img {
+    display: block;
+  }
+}
+
+.reviews__slider-item-content {
+  div {
+    margin-bottom: 16px;
+  }
+
+  div > p:first-of-type {
+    margin-bottom: 10px;
+  }
+
+  p {
+    @include font (12px, 18px, 400);
+
+    margin: 0;
+    letter-spacing: 0.02px;
+  }
+
+  h3 {
+    @include font (12px, 12px, 700);
+
+    margin: 0;
+    margin-bottom: 4px;
+  }
+
+  span {
+    @include font (12px, 12px, 300);
+  }
+}
+
+@media (min-width: $tablet-width) and (width <= 1439px) {
+  .reviews {
+    padding: 40px 0;
+    width: 768px;
+  }
+
+  .reviews__inner {
+    padding: 0 45px;
+    margin-bottom: 25px;
+  }
+
+  .reviews__title {
+    padding: 20px 0 10px;
+
+    font-size: 25px;
+    line-height: 25px;
+  }
+
+  .reviews__slider-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 78px;
+    min-height: 35px;
+    align-self: end;
+  }
+
+  .reviews__slider {
+    padding-left: 45px;
+    max-height: 277px;
+    overflow: hidden;
+    filter: drop-shadow(0 0 30px rgba(28, 51, 116, 0.1));
+  }
+
+  .reviews__slider-list {
+    height: auto;
+  }
+
+  .reviews .reviews__slider .reviews__slider-list.swiper-wrapper .reviews__slider-item.swiper-slide {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 30px;
+    max-width: 565px;
+    min-height: 237px;
+    padding-right: 30px;
+    flex-shrink: 0;
+
+    picture {
+      display: block;
+      width: 186px;
+      height: 237px;
+      overflow: hidden;
+    }
+
+    img {
+      margin: 0;
+      object-fit: cover;
+      object-position: -82px;
+      width: 351px;
+      height: auto;
+    }
+  }
+
+  .reviews__slider-item-content {
+    width: 299px;
+    padding-top: 2px;
+
+    div {
+      margin-bottom: 23px;
+    }
+
+    div > p:first-of-type {
+      margin-bottom: 12px;
+    }
+
+    h3 {
+      margin-bottom: 5px;
+
+      font-size: 13px;
+      line-height: 13px;
+    }
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .reviews {
+    padding: 100px 0 77px;
+    width: 1440px;
+    overflow: hidden;
+  }
+
+  .reviews__inner {
+    padding: 0 120px;
+    margin-bottom: 28px;
+  }
+
+  .reviews__slider-controls {
+    display: flex;
+    align-self: flex-end;
+    gap: 4px;
+    width: 78px;
+    min-height: 35px;
+  }
+
+  .reviews__slider {
+    padding-left: 120px;
+    overflow: hidden;
+    filter: drop-shadow(0 0 30px rgba(28, 51, 116, 0.1));
+  }
+
+  .reviews .reviews__slider .reviews__slider-list.swiper-wrapper .reviews__slider-item.swiper-slide {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 30px;
+    max-width: 700px;
+    min-height: 253px;
+    padding: 30px;
+    padding-right: 40px;
+    flex-shrink: 0;
+
+    picture {
+      display: block;
+      width: 258px;
+      height: 253px;
+    }
+
+    img {
+      width: 253px;
+      height: 100%;
+      margin: 0;
+      object-fit: cover;
+      object-position: -2px;
+    }
+  }
+
+  .reviews__title {
+    padding: 0;
+    padding-top: 45px;
+    margin: 0;
+
+    font-size: 35px;
+    line-height: 35px;
+  }
+
+  .reviews__slider-item-content {
+    width: 362px;
+
+    div {
+      min-height: 100px;
+      margin-bottom: 2px;
+    }
+
+    p {
+      width: 100%;
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+
+      font-size: 13px;
+      line-height: 13px;
+    }
+  }
+}

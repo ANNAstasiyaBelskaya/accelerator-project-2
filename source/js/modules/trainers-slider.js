@@ -12,6 +12,7 @@ const initTrainersSwiper = () => {
     loop: false,
     grabCursor: true,
     allowTouchMove: true,
+    autoHeight: false,
     breakpoints: {
       320: {
         slidesPerView: 1,

@@ -9,6 +9,10 @@
     margin-top: 0;
     margin-bottom: 25px;
   }
+
+  br {
+    display: none;
+  }
 }
 
 .training__title {
@@ -46,7 +50,9 @@
   margin: 0 auto;
   margin-bottom: 25px;
   width: 100%;
+  height: auto;
   overflow: hidden;
+  align-items: flex-start;
 }
 
 .training__slider-list {
@@ -57,14 +63,14 @@
   display: flex;
   flex-flow: column wrap;
   gap: 15px;
-  width: 290px;
-  min-height: 356px;
-  padding: 15px;
+  height: auto;
+  padding: 14px;
   box-sizing: border-box;
   border: 1px solid rgba(2, 102, 193, 0.2);
   background-color: var(--secondary-color, $secondary-color);
 
   div {
+    margin-top: 1px;
     display: grid;
     grid-template-columns: 1fr 24px;
     width: 100%;
@@ -75,20 +81,45 @@
     display: block;
   }
 
+  picture {
+    width: 260px;
+    height: 200px;
+  }
+
+  img {
+    display: block;
+    object-fit: cover;
+  }
+
   a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
-    outline: 1px solid var(--primary-color, $primary-color);
+    width: 23px;
+    height: 23px;
+    outline: 1px solid rgba(45, 56, 63, 0.3);
+
+    &:hover {
+      outline: 1px solid var(--primary-color, $primary-color);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      background-color: var(--accent-color, $accent-color);
+    }
+  }
+
+  a:active svg {
+    fill: var(--secondary-color, $secondary-color);
   }
 
   h4 {
     @include font (14px, 16px, 700);
 
     margin: 0;
-    padding-right: 15px;
   }
 
   p {
@@ -98,25 +129,49 @@
   }
 }
 
+.training__slider-item.swiper-slide [disabled] {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
 @media (min-width: $mobile-width) and (width <= 767px) {
+  .training__slider-item br {
+    display: block;
+  }
+
   .training__slider-controls {
     display: none;
+  }
+
+  .training__slider {
+    max-height: 356px;
+  }
+
+  .training__slider-item.swiper-slide {
+    img {
+      object-fit: cover;
+    }
   }
 }
 
 @media (min-width: $tablet-width) and (width <= 1439px) {
   .training {
-    padding: 40px 45px;
+    padding: 38px 45px 42px;
     width: 678px;
 
     p {
       font-size: 16px;
       line-height: 24px;
+      margin-bottom: 26px;
+    }
+
+    br {
+      display: block;
     }
   }
 
   .training__title {
-    margin-bottom: 26px;
+    margin-bottom: 24px;
     padding: 20px 0 10px;
 
     font-size: 25px;
@@ -124,7 +179,7 @@
   }
 
   .training__inner {
-    margin-bottom: 30px;
+    margin-bottom: 31px;
   }
 
   .training__inner-title {
@@ -135,6 +190,7 @@
   .training__slider-item.swiper-slide {
     padding-bottom: 13px;
     min-height: 388px;
+    gap: 14px;
 
     picture {
       width: 182px;
@@ -142,9 +198,8 @@
       overflow: hidden;
     }
 
-    picture img {
-      object-fit: contain;
-      object-position: -31px center;
+    div {
+      margin-top: 3px;
     }
   }
 }
@@ -155,14 +210,17 @@
     width: 1200px;
 
     p {
+      margin-bottom: 58px;
+      padding-right: 325px;
+
       font-size: 16px;
       line-height: 24px;
     }
   }
 
   .training__title {
-    margin-bottom: 37px;
-    padding: 19px 0 1px;
+    margin-bottom: 33px;
+    padding: 20px 0 0;
 
     font-size: 35px;
     line-height: 35px;
@@ -177,8 +235,17 @@
     line-height: 35px;
   }
 
+  .training__slider {
+    margin-bottom: 56px;
+    min-height: 356px;
+  }
+
   .training__slider-item.swiper-slide {
     padding-bottom: 13px;
+
+    br {
+      display: block;
+    }
 
     picture {
       width: 255px;
@@ -186,8 +253,8 @@
       overflow: hidden;
     }
 
-    h4 {
-      padding-right: 55px;
+    p {
+      width: 100%;
     }
   }
 }

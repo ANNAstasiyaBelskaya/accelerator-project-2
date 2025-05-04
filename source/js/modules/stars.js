@@ -16,21 +16,19 @@ const createStars = (filled) => {
 };
 
 const getRating = () => {
-  document.addEventListener('DOMContentLoaded', () => {
-    const starsContainer = document.querySelectorAll('.card__info-list-item');
-    starsContainer.forEach((item) => {
-      const ratingSpan = item.querySelector('[data-rating]');
+  const starsContainer = document.querySelectorAll('.card__info-list-item');
+  starsContainer.forEach((item) => {
+    const ratingSpan = item.querySelector('[data-rating]');
 
-      if(ratingSpan) {
-        const ratingValue = ratingSpan.dataset.rating;
-        ratingSpan.innerHTML = '';
+    if(ratingSpan) {
+      const ratingValue = ratingSpan.dataset.rating;
+      ratingSpan.innerHTML = '';
 
-        for (let i = 0; i < 5; i++) {
-          const star = createStars(i < ratingValue);
-          ratingSpan.appendChild(star);
-        }
+      for (let i = 0; i < 5; i++) {
+        const star = createStars(i < ratingValue);
+        ratingSpan.appendChild(star);
       }
-    });
+    }
   });
 };
 

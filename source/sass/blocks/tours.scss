@@ -17,7 +17,7 @@
 
 .tours__slider-controls {
   display: flex;
-  align-items: center;
+  align-self: flex-end;
   gap: 4px;
   width: 78px;
   min-height: 35px;
@@ -26,14 +26,16 @@
 .tours__title {
   @include font (22px, 22px, 800);
 
-  padding: 17px 0;
+  padding: 18px 0 15px;
   margin: 0;
+}
+
+.tours__slider {
+  margin-bottom: 25px;
 }
 
 .tours__slide-list.swiper-wrapper {
   @include list-style;
-
-  margin-bottom: 25px;
 }
 
 .tours__button {
@@ -56,12 +58,51 @@
 
 .tours__button svg {
   position: absolute;
+  width: 24px;
+  height: 15px;
   top: 50%;
   left: 78%;
   transform: translateY(-50%);
   display: block;
   stroke: #2d383f;
+  stroke-width: 2px;
   fill: none;
+}
+
+.tours__button:hover {
+  color: rgba(2, 102, 193, 0.2);
+  transition: 0.2s;
+
+  svg {
+    stroke: rgba(2, 102, 193, 0.2);
+    transition: 0.1s;
+  }
+}
+
+.tours__button:focus {
+  color: var(--accent-color, $accent-color);
+
+  svg {
+    stroke: var(--accent-color, $accent-color);
+  }
+}
+
+.tours__button:active {
+  color: var(--active-element-color, $active-element-color);
+  transition: 0.2s;
+
+  svg {
+    stroke: var(--active-element-color, $active-element-color);
+    transition: 0.1s;
+  }
+}
+
+.tours__button:disabled {
+  color: var(--disabled-element-color, $disabled-element-color);
+
+  svg {
+    stroke: var(--disabled-element-color, $disabled-element-color);
+  }
 }
 
 @media (min-width: $mobile-width) and (width <= 767px) {
@@ -73,11 +114,11 @@
 @media (min-width: $tablet-width) and (width <= 1439px) {
   .tours__container {
     width: 678px;
-    padding: 40px 0;
+    padding: 39px 0 41px;
   }
 
   .tours__title {
-    padding: 20px 0 5px;
+    padding: 20px 0 10px;
 
     font-size: 25px;
     line-height: 25px;
@@ -89,7 +130,7 @@
   }
 
   .tours__button svg {
-    left: 63%;
+    left: 64%;
   }
 }
 
@@ -99,15 +140,18 @@
     padding: 100px 0;
   }
 
+  .tours__inner {
+    margin-bottom: 53px;
+  }
+
   .tours__slide-list.swiper-wrapper {
     margin-bottom: 53px;
   }
 
   .tours__title {
-    margin-bottom: 53;
-
-    font-size: 55px;
-    line-height: 55px;
+    padding: 19px 0 1px;
+    font-size: 35px;
+    line-height: 35px;
   }
 
   .tours__button {
@@ -116,6 +160,6 @@
   }
 
   .tours__button svg {
-    left: 57%;
+    left: 58%;
   }
 }

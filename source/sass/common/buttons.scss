@@ -6,21 +6,52 @@
   margin: 0;
   width: 37px;
   height: 35px;
-  border: none;
   background-color: var(--accent-color, $accent-color);
+  border: 1px solid var(--accent-color, $accent-color);
+  box-sizing: border-box;
 
   &::after {
     display: none;
   }
 }
 
-.slider-control-button.swiper-button-disabled {
-  background-color: var(--disabled-element-color, $disabled-element-color);
-  opacity: 1;
-}
-
 .slider-control-button svg {
   width: 13px;
   height: 9px;
   fill: var(--secondary-color, $secondary-color);
+}
+
+.slider-control-button.swiper-button-disabled {
+  background-color: var(--disabled-element-color, $disabled-element-color);
+  border: 1px solid var(--disabled-element-color, $disabled-element-color);
+  opacity: 1;
+}
+
+.slider-control-button:hover {
+  background-color: var(--secondary-color, $secondary-color);
+  border: 1px solid var(--active-element-color, $active-element-color);
+  transition: 0.2s ease-in-out;
+
+  svg {
+    fill: var(--active-element-color, $active-element-color);
+  }
+}
+
+.slider-control-button:focus {
+  background-color: var(--secondary-color, $secondary-color);
+  border: none;
+
+  svg {
+    fill: var(--active-element-color, $active-element-color);
+  }
+}
+
+.slider-control-button:active {
+  background-color: var(--active-element-color, $active-element-color);
+  border: none;
+  transition: 0.2s ease-in-out;
+
+  svg {
+    fill: var(--secondary-color, $secondary-color);
+  }
 }

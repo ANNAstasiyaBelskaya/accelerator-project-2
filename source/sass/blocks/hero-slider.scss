@@ -74,6 +74,30 @@
   background-color: var(--accent-color, $accent-color);
   color: var(--secondary-color, $secondary-color);
   text-decoration: none;
+
+  &:hover {
+    color: var(--active-element-color, $active-element-color);
+    background-color: var(--secondary-color, $secondary-color);
+    outline: 1px solid var(--active-element-color, $active-element-color);
+    transition: 0.3s ease-in-out;
+  }
+
+  &:focus {
+    color: var(--active-element-color, $active-element-color);
+    background-color: var(--secondary-color, $secondary-color);
+    outline: none;
+  }
+
+  &:active {
+    color: var(--secondary-color, $secondary-color);
+    background-color: var(--active-element-color, $active-element-color);
+    transition: 0.3s ease-in-out;
+  }
+
+  &:disabled {
+    color: var(--secondary-color, $secondary-color);
+    background-color: var(--disabled-element-color, $disabled-element-color);
+  }
 }
 
 .hero-slider__info-container {
@@ -98,6 +122,18 @@
   outline: 1px solid var(--secondary-color, $secondary-color);
   background-color: transparent;
   opacity: 1;
+
+  &:hover {
+    background-color: #d9d9d9;
+  }
+
+  &:focus {
+    outline-offset: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  &:active {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
 }
 
 .hero-slider__controls.swiper-pagination .swiper-pagination-bullet-active {
@@ -217,13 +253,13 @@
     }
   }
 
-  .hero-slider__info--duration::before {
+  .hero-slider__info-text--duration::before {
     background-image: url("/__spritemap#sprite-moon-view");
     background-size: 11px 11px;
     background-repeat: no-repeat;
   }
 
-  .hero-slider__info--complexity::before {
+  .hero-slider__info-text--complexity::before {
     background-image: url("/__spritemap#sprite-level-view");
     background-size: 10px 11px;
     background-repeat: no-repeat;

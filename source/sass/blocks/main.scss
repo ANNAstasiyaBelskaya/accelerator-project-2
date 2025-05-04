@@ -1,11 +1,16 @@
+.main {
+  flex-grow: 1;
+}
+
 .main__background {
   position: relative;
+  overflow: hidden;
 }
 
 .main__section {
   position: relative;
   width: 100%;
-  overflow: hidden;
+
   background-color: var(--secondary-color, $secondary-color);
   z-index: 1;
 }
@@ -13,19 +18,20 @@
 @media (min-width: $mobile-width) and (width <= 767px) {
   .main__section.tours::before {
     position: absolute;
+    display: block;
     content: "";
-    width: 995px;
-    height: 595px;
-    top: 10px;
-    left: 55%;
+    width: 705px;
+    height: 796px;
+    top: 3px;
+    left: 62%;
     background-image:
       image-set(
-        url("../../img/cloud-background/mountains-and-clouds.webp") type("image/webp") 1x,
-        url("../../img/cloud-background/mountains-and-clouds@2x.webp") type("image/webp") 2x,
-        url("../../img/cloud-background/mountains-and-clouds.png") type("image/png") 1x,
-        url("../../img/cloud-background/mountains-and-clouds@2x.png") type("image/png") 2x
+        url("../../img/cloud-background/main-clouds.webp") type("image/webp") 1x,
+        url("../../img/cloud-background/main-clouds@2x.webp") type("image/webp") 2x,
+        url("../../img/cloud-background/main-clouds.png") type("image/png") 1x,
+        url("../../img/cloud-background/main-clouds@2x.png") type("image/png") 2x
       );
-    background-size: cover;
+    background-size: contain;
     z-index: -1;
   }
 }
@@ -40,16 +46,16 @@
   .main__background::before {
     position: absolute;
     content: "";
-    width: 2060px;
+    width: 1400px;
     height: 1630px;
-    top: 925px;
-    left: 300px;
+    top: 941px;
+    left: 342px;
     background-image:
       image-set(
-        url("../../img/cloud-background/mountains-and-clouds.webp") type("image/webp") 1x,
-        url("../../img/cloud-background/mountains-and-clouds@2x.webp") type("image/webp") 2x,
-        url("../../img/cloud-background/mountains-and-clouds.png") type("image/png") 1x,
-        url("../../img/cloud-background/mountains-and-clouds@2x.png") type("image/png") 2x
+        url("../../img/cloud-background/main-clouds.webp") type("image/webp") 1x,
+        url("../../img/cloud-background/main-clouds@2x.webp") type("image/webp") 2x,
+        url("../../img/cloud-background/main-clouds.png") type("image/png") 1x,
+        url("../../img/cloud-background/main-clouds@2x.png") type("image/png") 2x
       );
     background-size: cover;
     z-index: -1;

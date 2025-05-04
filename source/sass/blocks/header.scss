@@ -1,4 +1,7 @@
 .header {
+  flex-grow: 0;
+  flex-shrink: 0;
+  position: relative;
   width: 100%;
   background-color: var(--accent-color, $accent-color);
 }
@@ -10,11 +13,49 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  transition: min-height 0.3s ease-in-out;
+}
+
+.header__container.open {
+  min-height: 330px;
+  background-color: var(--accent-color, $accent-color);
+  z-index: 3;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.header__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(45, 56, 63, 0.6);
+  opacity: 0;
+  z-index: 1;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.header.open .header__overlay {
+  opacity: 1;
+  visibility: visible;
 }
 
 .header__logo {
   display: block;
   height: 42px;
+}
+
+.header__nav {
+  display: none;
+}
+
+.header__nav.open {
+  position: relative;
+  display: block;
+  width: 117px;
+  top: 176px;
 }
 
 .header__burger {
@@ -34,25 +75,53 @@
   width: 100%;
   height: 100%;
   fill: $secondary-color;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
 }
 
 .header__menu {
   @include list-style;
 
   display: flex;
-  flex-flow: column-wrap;
+  flex-flow: column wrap;
+  gap: 22px;
+  margin: 0;
+
+  width: 100%;
+  min-height: 194px;
+  background-color: var(--accent-color, $accent-color);
 }
 
-.header__menu-link,
+.header__menu-link {
+  @include font (14px, 14px, 700);
+
+  display: block;
+  color: var(--secondary-color, $secondary-color);
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:hover {
+    border-bottom: 1px solid var(--primary-color, $primary-color);
+  }
+
+  &:focus {
+    border: 1px solid var(--primary-color, $primary-color);
+  }
+
+  &:active {
+    color: var(--accent-color, $accent-color);
+  }
+
+  &[disabled] {
+    color: var(--disabled-element-color, $disabled-element-color);
+  }
+}
+
 .header__phone {
-  @include font(14px, 14px, 700);
+  @include font(14px, 14px, 600);
 
   color: var(--secondary-color, $secondary-color);
   text-decoration: none;
-}
-
-.header__phone {
-  font-weight: 600;
 }
 
 @media (min-width: $mobile-width) and (width <= 767px) {
@@ -60,14 +129,10 @@
     position: relative;
     display: grid;
     grid-template-columns: 148px 142px;
-    grid-template-rows: 42px 14px;
-    row-gap: 14px;
+    grid-template-rows: 43px 14px;
+    row-gap: 15px;
     width: 290px;
-    padding: 15px;
-  }
-
-  .header__nav {
-    display: none;
+    padding: 15px 15px 14px;
   }
 
   .header__logo {
@@ -89,33 +154,59 @@
 
 @media (min-width: $tablet-width) and (width <= 1439px) {
   .header__container {
+    display: grid;
+    grid-template-columns: 218px 230px;
+    grid-template-rows: 42px 1px;
     position: relative;
-    width: 678px;
+    width: 768px;
     padding: 20px 45px;
-    justify-content: flex-end;
+    box-sizing: border-box;
+  }
+
+  .header__container.open {
+    min-height: 408px;
   }
 
   .header__nav {
     display: none;
   }
 
+  .header__nav.open {
+    position: relative;
+    display: block;
+    width: 133px;
+    top: 184px;
+    left: -220px;
+  }
+
   .header__burger {
-    top: 50%;
+    top: 34%;
     left: 45px;
-    transform: translateY(-50%);
+  }
+
+  .header__burger.cross {
+    top: 7%;
   }
 
   .header__logo {
-    padding: 0 42px;
+    padding-left: 268px;
+    box-sizing: border-box;
+  }
+
+  .header__menu {
+    gap: 26px;
+    min-height: 226px;
   }
 
   .header__menu-link {
     font-size: 16px;
     line-height: 16px;
+    letter-spacing: 4%;
   }
 
   .header__phone {
     width: 226px;
+    grid-area: 1/3/2/4;
 
     font-size: 16px;
     line-height: 16px;
@@ -125,8 +216,13 @@
 
 @media (min-width: $desktop-width) {
   .header__container {
+    flex-flow: row wrap;
     width: 1200px;
     padding: 32px 120px;
+  }
+
+  .header__overlay {
+    display: none;
   }
 
   .header__logo {
@@ -144,15 +240,19 @@
   }
 
   .header__menu {
+    display: flex;
     width: 838px;
+    min-height: 62px;
     padding: 0 133px;
     box-sizing: border-box;
     flex-flow: row wrap;
+    align-items: center;
     justify-content: space-between;
   }
 
   .header__menu-link {
     font-weight: 400;
+    text-transform: none;
   }
 
   .header__phone {
